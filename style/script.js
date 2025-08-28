@@ -1,5 +1,13 @@
 const book = document.getElementById('book');
 const pages = [];
+const sound = document.getElementById("sound");
+
+document.addEventListener("click", () => {
+  if (sound.paused) {
+    sound.currentTime = 11;
+    sound.play().catch(err => console.log("Không phát được nhạc:", err));
+  }
+}, { once: true });
 
 const introPage = document.createElement('div');
 introPage.className = 'page';
@@ -135,4 +143,5 @@ pages.forEach((page) => {
     if (diff < -30) flipForward();
     else if (diff > 30) flipBackward();
   });
+
 });
